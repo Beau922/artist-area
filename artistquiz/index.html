@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>What is your...</title>
+<style>
+body {
+background-image: url("cbg.jpg");
+background-position: center;
+background-size: cover, 100%;
+background-repeat: repeat-x, no-repeat; 
+font-family: Helvetica;
+}
+
+#main {
+width: 60%;
+border: 1px gray solid;
+margin: auto;
+padding: 10px;
+background-color: #13F8CE;
+border-radius: 10px;
+}
+
+#header {
+margin-top: 0;
+border: 2px solid-black;
+padding: 5px;
+height: 250px;
+background-image: url("rlc.jpg");
+background-position: center;
+background-size: 500px;
+}
+
+label {
+
+display: block;
+}
+
+h1 {
+	color: #DB3AB4;
+	text-shadow: 2px 2px #13F8CE;
+
+}
+
+
+
+input {
+width: 30px;
+margin-left: 20px;
+}
+
+button {
+display: block;
+margin-top: 20px;
+}
+
+
+
+</style>
+</head>
+<body>
+<div id="main">
+<div id="header"><h1>Where are you at as a Music Artist?</h1></div>
+<form  id="form1">
+<p>How old are you?</p>
+<label><input type="radio" name="age" id="young" value="1" />Too young to answer</label>
+<label><input type="radio" name="age" id="young" value="2" />16-18</label>
+<label><input type="radio" name="age" id="mid" value="3" />19-34</label>
+<label><input type="radio" name="age" id="old" value="4" />34+</label>
+
+<p>What is your instrument of choice?</p>
+<label><input type="radio" name="instrument" id="eguitar" value="1" />Electric Guitar</label>
+<label><input type="radio" name="instrument" id="saxophone" value="2" />Saxophone</label>
+<label><input type="radio"  name="instrument" id="aguitar" value="3" />Acoustic Guitar</label>
+<label><input type="radio"  name="instrument" id="dj" value="4" />DJ Turntable</label>
+<label><input type="radio"  name="instrument" id="mic" value="5" />Microphone</label>
+
+
+
+<p>What's your favorite music genre?</p>
+<label><input type="radio" name="genre" id="rock2" value="1" />Rock</label>
+<label><input type="radio" name="genre" id="jazz" value="2" />Jazz</label>
+<label><input type="radio" name="genre" id="country" value="3" />Country</label>
+<label><input type="radio" name="genre" id="Electronic" value="4" />Electronic/Dubstep</label>
+<label><input type="radio" name="genre" id="Hip-Hop" value="5" />Hip-Hop/Rap</label>
+
+
+
+
+
+<button type="submit" value="Submit">Submit</button>
+
+</form>
+
+<p id="answer"></p>
+<p id="answer2"></p>
+</div>
+<script>
+	   document.getElementById("form1").onsubmit=function() {
+	   
+	   
+	   age = parseInt(document.querySelector('input[name = "age"]:checked').value);  
+	  
+	  instrument = parseInt(document.querySelector('input[name = "instrument"]:checked').value);
+	   
+	  genre = parseInt(document.querySelector('input[name = "genre"]:checked').value);
+	   
+	   total= age + instrument + genre;
+	   
+	  
+	   //document.getElementById("answer").innerHTML = total;	 
+       
+      
+
+	   if(total < 5) {
+document.getElementById("answer2").innerHTML = "You're in the works...";
+}
+
+   if(total >=5 && total < 13) {
+document.getElementById("answer2").innerHTML = "The next Rock Star on the rise.";
+}
+	
+	if(total >=14) {
+document.getElementById("answer2").innerHTML = "You're a Pop Star!!!";
+}
+
+    
+	   return false; // required to not refresh the page; just leave this here
+	   }// end the submit function
+</script>
+
+</body>
+</html>
